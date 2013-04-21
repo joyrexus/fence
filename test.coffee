@@ -1,5 +1,5 @@
 {test, eq, arrayEq} = require './src/testy'
-{getLang, makeFencer} = require './lib/main'
+{getLang, makeFencer} = require './src/main'
 
 test 'getLang', ->
   tests =

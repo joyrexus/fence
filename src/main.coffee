@@ -36,26 +36,37 @@ makeFencer = (lang='') ->
       "\n\n```#{lang}\n#{dedented}\n```\n"
     text.replace indented, asFenced
 
+# Convert fenced source to indented code block
+unfence = (source) ->
+    text = source.toString()
+    fenced = /^```(?:\w+)?\n([\s\S]*?)\n```\n/mg
+    indent = (match, code) -> code.replace(/^/mg, '    ') + "\n\n"
+    text.replace fenced, indent
+
 # Run as script
 run = ->
   fs = require 'fs'
   argv = require('optimist')
+          .alias('u', 'undo')
+          .describe('u', 'Undo fencing (convert to indented)')
           .alias('l', 'lang')
           .describe('l', 'Language tag for fences')
           .argv
 
+  convert = unfence if argv.undo?
+
   if argv._.length
     for file in argv._
       lang = argv.lang or getLang file
-      fence = makeFencer lang
+      convert or= makeFencer lang
       source = fs.readFileSync file
-      console.log fence source
+      console.log convert source
   else
-    fence = makeFencer argv.lang
-    print = (source) -> console.log fence source
+    convert or= makeFencer argv.lang
+    print = (source) -> console.log convert source
     process.stdin.on 'data', print
     process.stdin.resume()
  
 # Export methods for testing
-exports[name] = method for name, method of {run, getLang, makeFencer}
+exports[name] = method for name, method of {run, getLang, unfence, makeFencer}
 

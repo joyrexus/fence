@@ -1,5 +1,5 @@
 {test, eq, arrayEq} = require './src/testy'
-{getLang, makeFencer} = require './src/main'
+{getLang, unfence, makeFencer} = require './src/main'
 
 test 'getLang', ->
   tests =
@@ -13,5 +13,11 @@ test 'makeFencer', ->
   fenced = '# Demo\n\n```python\nprint "hello world!"\n```\n'
   fence = makeFencer 'python'
   eq fence(source), fenced
+  eq source, unfence(fence(source)), "fence and unfence source"
+
+test 'unfence', ->
+  source = '# Demo\n\n```python\nprint "hello world!"\n```\n'
+  indented = '# Demo\n\n    print "hello world!"\n\n'
+  eq unfence(source), indented
 
 test.status()

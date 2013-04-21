@@ -2,7 +2,7 @@
   "name": "fence",
   "version": "0.0.1",
   "description": "Fence codeblocks in literate source files",
-  "bin": {"fence": "./fence"},
+  "bin": {"fence": "./bin/fence"},
   "main": "lib/main.js",
   "dependencies": {
     "optimist": ">= 0.4.0"

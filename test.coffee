@@ -13,7 +13,7 @@ test 'makeFencer', ->
   fenced = '# Demo\n\n```python\nprint "hello world!"\n```\n'
   fence = makeFencer 'python'
   eq fence(source), fenced
-  eq source, unfence(fence(source)), "fence and unfence source"
+  eq source, unfence(fence(source)), "round-trip equality"
 
 test 'unfence', ->
   source = '# Demo\n\n```python\nprint "hello world!"\n```\n'

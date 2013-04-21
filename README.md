@@ -8,6 +8,8 @@ Handy if you want to have your code blocks highlighted when posting
 your literate script as a Gist or as a README.md file for your repo ... or to
 convert a markdown file with fenced code blocks to literate source.
 
+Note that this utility only converts code blocks in markdown files from one format to another.  See [this gist](https://gist.github.com/joyrexus/5199201) for a demonstration of how to **run** or **extract** code blocks from any literate source file.
+
 
 ## Example
 
@@ -31,7 +33,6 @@ And now we want to fence the code blocks in this file so that they'll be rendere
 print "hello world!"
 ```
 
-
 ## Usage
 
     fence demo.python.md > demo.md
@@ -44,6 +45,10 @@ You can also "undo" fencing:
 
     fence --undo demo.md > demo.litcoffee
     cat demo.md | fence --undo > demo.litcoffee
+
+Round-trip:
+
+    fence demo.litcoffee | fence --undo > demo.litcoffee
 
 
 ## Credit

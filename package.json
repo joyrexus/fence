@@ -1,14 +1,14 @@
 {
-  "name": "fence",
+  "name": "fence-filter",
   "version": "0.0.1",
-  "description": "Fence codeblocks in literate source files",
+  "description": "Fence or unfence code blocks in markdown files",
   "bin": {"fence": "./bin/fence"},
   "main": "lib/main.js",
   "dependencies": {
     "optimist": ">= 0.4.0"
   },
   "repository": "https://github.com/joyrexus/fence.git",
-  "keywords": [ "utility", "literate scripting" ],
+  "keywords": [ "markdown", "filter", "utility", "literate scripting" ],
   "author": "J. Voigt",
   "license": "MIT"
 }

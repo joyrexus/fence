@@ -1,3 +1,4 @@
 node_modules
-fence.coffee
+Cakefile
+*.coffee
 src

@@ -10,6 +10,11 @@ convert a markdown file with fenced code blocks to literate source.
 
 Note that this utility only converts code blocks in markdown files from one format to another.  See [this gist](https://gist.github.com/joyrexus/5199201) for a demonstration of how to **run** or **extract** code blocks from any literate source file.
 
+Installing with `npm install fence-filter` should yield:
+
+    $ which fence
+    /usr/local/bin/fence
+
 
 ## Example
 
